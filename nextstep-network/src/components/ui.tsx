@@ -4,8 +4,8 @@ import { AlertTriangle, BadgeCheck, FlaskConical, Info, ShieldQuestion } from "l
 import { cn, formatDate } from "@/lib/format";
 import type { Verification } from "@/lib/types";
 
-export function Card({ className, children, as: As = "section" }: { className?: string; children: ReactNode; as?: "section" | "div" | "article" | "aside" }) {
-  return <As className={cn("card", className)}>{children}</As>;
+export function Card({ className, children, as: As = "section", id }: { className?: string; children: ReactNode; as?: "section" | "div" | "article" | "aside"; id?: string }) {
+  return <As id={id} className={cn("card", className)}>{children}</As>;
 }
 
 export function CardHeader({ title, action, subtitle }: { title: ReactNode; action?: ReactNode; subtitle?: ReactNode }) {
