@@ -42,8 +42,12 @@ export async function signup(_: FormState, form: FormData): Promise<FormState> {
   const store = await db();
   if (await store.find("users", { email })) return { error: "An account with that email already exists. Try signing in." };
 
+  // One-time bootstrap: the first account registered with BOOTSTRAP_ADMIN_EMAIL becomes the
+  // administrator, but only while no administrator exists yet.
+  const bootstrap = !!process.env.BOOTSTRAP_ADMIN_EMAIL && email === process.env.BOOTSTRAP_ADMIN_EMAIL.toLowerCase() && ageGroup === "adult"
+    && (await store.all("users", { role: "admin" })).length === 0;
   const user = await store.insert("users", {
-    email, name, role, ageGroup, passwordHash: hashPassword(password), status: "active", verified: false,
+    email, name, role: bootstrap ? "admin" : role, ageGroup, passwordHash: hashPassword(password), status: "active", verified: bootstrap,
   });
   await store.insert("profiles", {
     userId: user.id, headline: "", about: "", school: "", schoolLevel: role === "student" ? "high_school" : "other", gradYear: null,
@@ -51,12 +55,12 @@ export async function signup(_: FormState, form: FormData): Promise<FormState> {
     awards: [], certifications: [], links: [], avatarUrl: "", bannerUrl: "", visibility: defaultVisibility(ageGroup),
     learningFormat: "", residencyStatus: "not_started", parentLinkCode: null,
   });
-  if (requiresVerification(role)) {
+  if (!bootstrap && requiresVerification(role)) {
     await store.insert("notifications", { userId: user.id, type: "system", text: "Your account is awaiting verification by our team. Some features stay locked until then.", href: "/settings", read: false });
   }
   await audit(user.id, "user.signup", user.id, role);
   await createSession(user.id);
-  redirect(role === "student" ? "/profile/edit?welcome=1" : "/dashboard");
+  redirect(bootstrap ? "/admin" : role === "student" ? "/profile/edit?welcome=1" : "/dashboard");
 }
 
 const LoginSchema = z.object({ email: z.string().trim().toLowerCase().email(), password: z.string().min(1).max(200) });
@@ -105,6 +109,9 @@ export async function deleteAccount(_: FormState, form: FormData): Promise<FormS
   const owned = ["profiles", "sessions", "saved_items", "college_applications", "fafsa_progress", "aid_offers", "scholarship_applications", "job_applications", "tasks", "essays", "courses", "user_docs", "ai_usage", "notifications", "notification_prefs", "group_members", "follows", "reactions"] as const;
   for (const t of owned) await store.remove(t, { userId: me.id } as never);
   await store.remove("posts", { authorId: me.id });
+  await store.remove("messages", { senderId: me.id });
+  await store.remove("blocks", { blockerId: me.id });
+  await store.remove("blocks", { blockedId: me.id });
   await store.remove("comments", { authorId: me.id });
   await store.remove("connections", { requesterId: me.id });
   await store.remove("connections", { addresseeId: me.id });

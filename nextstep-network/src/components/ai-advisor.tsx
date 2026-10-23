@@ -106,7 +106,7 @@ export function AiAdvisor() {
 }
 
 /** Inline writing assistant used on profile, essay and resume pages. */
-export function WritingAssist({ mode, getText, label = "Improve with AI" }: { mode: "profile" | "essay" | "resume" | "email"; getText: () => string; label?: string }) {
+export function WritingAssist({ mode, getText, label = "Improve with AI" }: { mode: "advisor" | "profile" | "essay" | "resume" | "email"; getText: () => string; label?: string }) {
   const [busy, setBusy] = useState(false);
   const [out, setOut] = useState<{ reply?: string; error?: string } | null>(null);
   return (

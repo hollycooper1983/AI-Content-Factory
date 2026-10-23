@@ -18,6 +18,7 @@ export default async function Invitations() {
   return (
     <div className="mx-auto max-w-3xl space-y-4 px-4 py-6">
       <Link href="/network" className="text-sm text-brand hover:underline">← My Network</Link>
+      <h1 className="text-2xl font-bold">Invitations</h1>
       <Card>
         <CardHeader title={`Invitations (${incoming.length})`} />
         {incoming.length === 0 ? <EmptyState title="No pending invitations" /> : (

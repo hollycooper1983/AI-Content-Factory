@@ -10,14 +10,14 @@ const g = globalThis as unknown as { __nsStore?: Promise<Store> };
 async function create(): Promise<Store> {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (url && key) return new SupabaseStore(url, key);
-  const local = new LocalStore(path.join(process.cwd(), ".data", "db.json"));
-  if (local.isEmpty()) await seed(local);
-  return local;
+  const store: Store = url && key ? new SupabaseStore(url, key) : new LocalStore(path.join(process.cwd(), ".data", "db.json"));
+  // Seed clearly labeled demonstration data into an empty database unless demo mode is off.
+  if (process.env.DEMO_MODE !== "false" && (await store.all("users")).length === 0) await seed(store);
+  return store;
 }
 
 export function db(): Promise<Store> {
-  if (!g.__nsStore) g.__nsStore = create();
+  if (!g.__nsStore) g.__nsStore = create().catch((e) => { g.__nsStore = undefined; throw e; });
   return g.__nsStore;
 }
 

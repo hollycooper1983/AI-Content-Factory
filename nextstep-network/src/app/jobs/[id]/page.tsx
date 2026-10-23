@@ -8,7 +8,7 @@ import { db } from "@/lib/db";
 import { formatDate, label } from "@/lib/format";
 import { ActionButton } from "@/components/client-ui";
 import { Badge, Card, DemoBadge, Notice, OrgVerified } from "@/components/ui";
-import { ReportJob } from "./report";
+import { ReportButton } from "@/components/report-button";
 
 export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
   const j = await (await db()).get("jobs", params.id);
@@ -53,7 +53,7 @@ export default async function Job({ params }: { params: { id: string } }) {
         {j.responsibilities.length > 0 && <><h2 className="mt-4 font-semibold">Responsibilities</h2><ul className="mt-1 list-disc pl-5 text-sm">{j.responsibilities.map((r) => <li key={r}>{r}</li>)}</ul></>}
         {j.qualifications.length > 0 && <><h2 className="mt-4 font-semibold">Qualifications & requirements</h2><ul className="mt-1 list-disc pl-5 text-sm">{j.qualifications.map((r) => <li key={r}>{r}</li>)}</ul></>}
         <p className="mt-6 text-xs text-muted">Never pay to apply for a job, and never share bank details or your SSN before you've verified an employer. Employers on NextStep never see your private academic records.</p>
-        {user && <ReportJob jobId={j.id} />}
+        {user && <div className="mt-3"><ReportButton targetType="job" targetId={j.id} label="Report suspicious listing" reasons={["Fake or fraudulent listing", "Asks for payment", "Inappropriate for students", "Other"]} /></div>}
       </Card>
     </div>
   );

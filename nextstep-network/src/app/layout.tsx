@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="min-h-screen">
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-surface focus:px-3 focus:py-2">Skip to content</a>
         {viewer ? <TopNav user={viewer.user} profile={viewer.profile} /> : <PublicNav />}
-        {announcement && process.env.DEMO_MODE !== "false" && (
+        {announcement && (
           <div className="no-print border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-xs text-amber-900 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-100">{announcement}</div>
         )}
         <main id="main" className="pb-20 lg:pb-0">{children}</main>

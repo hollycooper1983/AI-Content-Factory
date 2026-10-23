@@ -8,6 +8,7 @@ import { connectionIds, membersById } from "@/lib/queries";
 import type { SafeUser } from "@/lib/auth";
 import type { Entry, Profile, User } from "@/lib/types";
 import { ActionButton, Avatar, ResultActionButton, SafeImage } from "./client-ui";
+import { ReportButton } from "./report-button";
 import { Badge, Card, Progress } from "./ui";
 
 function Section({ title, icon, children, editHref }: { title: string; icon: React.ReactNode; children: React.ReactNode; editHref?: string }) {
@@ -105,6 +106,7 @@ export async function ProfileView({ owner, profile, viewer, isSelf, connected, p
                     <ResultActionButton className="btn-primary" action={requestConnection.bind(null, owner.id)}>+ Connect</ResultActionButton>
                   )}
                   <ActionButton className="btn-ghost text-red-600" confirm={`Block ${owner.name}? They won't be able to see your profile, connect or message you.`} action={blockUser.bind(null, owner.id)}>Block</ActionButton>
+                  <ReportButton targetType="user" targetId={owner.id} reasons={["Fake or impersonation account", "Harassment or bullying", "Inappropriate content", "Adult contacting minors inappropriately", "Spam or scam", "Other"]} />
                 </>
               )}
             </div>

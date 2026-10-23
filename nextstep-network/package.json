@@ -6,10 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "db:reset": "node -e \"require('fs').rmSync('.data',{recursive:true,force:true})\""
+    "db:reset": "node -e \"require('fs').rmSync('.data',{recursive:true,force:true})\"",
+    "test:e2e": "node tests/e2e/smoke.mjs && node tests/e2e/flows.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "2.45.4",

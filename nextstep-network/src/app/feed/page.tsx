@@ -57,6 +57,7 @@ export default async function FeedPage({ searchParams }: { searchParams: { tab?:
     <div className="mx-auto grid max-w-7xl gap-5 px-4 py-6 md:grid-cols-[225px_1fr] lg:grid-cols-[225px_minmax(0,1fr)_300px]">
       <aside className="hidden md:block"><div className="sticky top-20"><ProfileCard user={user} profile={profile} /></div></aside>
       <div className="min-w-0 space-y-4">
+        <h1 className="sr-only">Home feed</h1>
         {searchParams.denied && <Notice tone="amber">You don't have access to that page.</Notice>}
         <Composer name={user.name} avatar={profile?.avatarUrl ?? ""} orgs={myOrgs} />
         <nav aria-label="Feed filters" className="flex gap-2 overflow-x-auto pb-1">
