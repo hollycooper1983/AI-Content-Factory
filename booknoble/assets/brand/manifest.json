@@ -1,0 +1,81 @@
+{
+  "generator": "fal.ai \u2014 bria/fibo-2/generate (Bria FIBO 2.0)",
+  "license_note": "Bria models are trained only on licensed data and are offered for commercial use. Confirm against the current fal.ai and Bria terms before launch and keep this manifest as provenance.",
+  "generated_on": "2026-10-25",
+  "in_app_copies": "768px web previews saved in this folder (sized for mobile). Run `npm run fetch:brand` to download full-resolution originals into assets/brand/full/ while the fal URLs remain available.",
+  "assets": [
+    {
+      "file": "industry-hair.webp",
+      "fal_request_id": "01a17530-800b-7563-a170-7ab9acff15bc",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9ed/iu-wLoCSusLoYkkmDOkT8_c63dcdbb9f4949cd84a833421961eca6.png",
+      "aspect_ratio": "4:5",
+      "prompt": "Editorial photograph of a professional hair stylist finishing a client's hair in a modern upscale salon, warm natural window light, deep purple and royal blue interior accents with subtle brushed gold fixtures, calm confident atmosphere, shallow depth of field, premium lifestyle brand photography, no text, no logos",
+      "used_for": "Industry tile, public booking cover"
+    },
+    {
+      "file": "industry-nails.webp",
+      "fal_request_id": "01a17530-801b-7af2-89f8-9a4166b6de8d",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9ec/CUSJiRzwMQREELFQtu8iH_d55e03e87cfc40fd87c28bc8ebd7142c.png",
+      "aspect_ratio": "4:5",
+      "prompt": "Editorial close-up photograph of a nail technician carefully applying polish to a client's hands at a clean minimalist studio desk, soft diffused light, deep navy and muted gold palette, premium lifestyle brand photography, shallow depth of field, no text, no logos",
+      "used_for": "Industry tile, public booking cover"
+    },
+    {
+      "file": "industry-detailing.webp",
+      "fal_request_id": "01a17530-8061-77f3-b8f0-435799bf236a",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9ed/xEed4z49dNSxTAg627HJx_159657feec45453eb2f82874e4d47f72.png",
+      "aspect_ratio": "4:5",
+      "prompt": "Editorial photograph of a mobile car detailer polishing the glossy hood of a dark blue car in a residential driveway at golden hour, professional uniform, microfiber cloth, reflections on the paint, premium lifestyle brand photography, no text, no logos",
+      "used_for": "Industry tile, onboarding slide 2"
+    },
+    {
+      "file": "industry-housekeeping.webp",
+      "fal_request_id": "01a17530-8065-71d1-a0b7-bf979c811f91",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9ed/vMxBwUvzdfRA6oE4DqUEm_135fc0bccfae44e3978997118d8afb00.png",
+      "aspect_ratio": "4:5",
+      "prompt": "Editorial photograph of a professional housekeeper arranging a bright, spotless modern living room, folding a throw blanket on a sofa, soft morning light, neutral tones with deep blue cushions and gold accents, premium lifestyle brand photography, no text, no logos",
+      "used_for": "Industry tile"
+    },
+    {
+      "file": "industry-events.webp",
+      "fal_request_id": "01a17531-d6ca-7480-ba8a-e2a975327bb1",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9f5/S4POk7GX4eKkL-8J6J9QK_9e1b0e349a9f4daab3699cf80199868d.png",
+      "aspect_ratio": "4:5",
+      "prompt": "Editorial photograph of an elegant evening party venue prepared by a professional event decorator: round tables with white linens, gold chiavari chairs, tall candles, deep purple and royal blue floral centerpieces, warm string lights overhead, a decorator seen from behind adjusting a centerpiece with both hands, complete natural human figure, warm ambient glow, premium event photography, no text, no logos",
+      "used_for": "Industry tile, onboarding slide 3 (regenerated: first attempt rejected in QA for an anatomical defect)"
+    },
+    {
+      "file": "splash-bg.webp",
+      "fal_request_id": "01a17530-8061-7690-a087-f7fae1e5b3df",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9ed/KN_rFcrZayOi9gBe4m_V5_57f1fb895e0b4613ae347da727fa3096.png",
+      "aspect_ratio": "9:16",
+      "prompt": "Abstract luxury background for a mobile app splash screen: deep midnight purple (#170D35) gradient with soft flowing silk-like light ribbons in royal blue (#2850D8) and a few fine glints of warm gold (#D9B56B), subtle grain, lots of empty dark negative space in the center, elegant, minimal, no text, no symbols, no logos",
+      "used_for": "Animated launch splash"
+    },
+    {
+      "file": "banner-bg.webp",
+      "fal_request_id": "01a17530-8063-74d1-aceb-aa5d35170242",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9ed/KlAf05JtDZ8K1SIuTnqax_78a061446391480795dd05a467afadb9.png",
+      "aspect_ratio": "16:9",
+      "prompt": "Abstract decorative banner background: soft geometric calendar grid lines fading into a deep purple to royal blue gradient, fine gold accent light streaks, glassy depth, premium fintech aesthetic, minimal, no text, no numbers, no logos",
+      "used_for": "Revenue card, Play feature graphic, 'Something else' industry tile"
+    },
+    {
+      "file": "onboarding-owner.webp",
+      "fal_request_id": "01a17530-8069-7e01-80a5-d488458311d1",
+      "original_url": "https://v3b.fal.media/files/b/0aafd9ed/xWd5k_btpZlgQZrKCK085_bcb7e7cc0a4347f4a120b19308caefa4.png",
+      "aspect_ratio": "4:5",
+      "prompt": "Editorial photograph of a confident small-business owner in a bright modern studio looking at a smartphone with a satisfied smile, laptop and planner on the desk, deep purple and royal blue decor with subtle gold details, warm natural light, premium lifestyle brand photography, phone screen not visible, no text, no logos",
+      "used_for": "Onboarding slide 1"
+    }
+  ],
+  "rendered_from_vector_logo": [
+    "images/icon.png",
+    "images/android-icon-*.png",
+    "images/splash-icon.png",
+    "images/favicon.png",
+    "brand/logo-mark.png",
+    "brand/logo-lockup-*.png",
+    "store/play-feature-graphic.png"
+  ]
+}
