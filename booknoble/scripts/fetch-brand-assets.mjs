@@ -7,7 +7,13 @@ const dir = new URL('../assets/brand/full/', import.meta.url);
 await mkdir(dir, { recursive: true });
 for (const a of manifest.assets) {
   const name = a.file.replace(/\.webp$/, '.png');
-  const res = await fetch(a.original_url);
+  let res;
+  try {
+    res = await fetch(a.original_url);
+  } catch (e) {
+    console.warn(`skip ${name}: ${e.cause?.code ?? e.message} (is ${new URL(a.original_url).host} reachable?)`);
+    continue;
+  }
   if (!res.ok) {
     console.warn(`skip ${name}: HTTP ${res.status}`);
     continue;
